@@ -1,7 +1,0 @@
-{
-  "name": "ionic-t-villaganas",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react-vite"
-}
