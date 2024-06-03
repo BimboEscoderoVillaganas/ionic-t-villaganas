@@ -1,0 +1,46 @@
+h1 {
+  text-align: center;
+}
+p{
+  margin: 10px 50px 200px 50px;
+}
+#text{
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+ion-card {
+  margin: 10px;
+}
+
+.social-links ion-item {
+  --padding-start: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1 1 300px;
+  margin-right: 20px;
+}
+
+.footer-section:last-child {
+  margin-right: 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 10px;
+}
