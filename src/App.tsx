@@ -14,8 +14,8 @@ import {
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import Profile from './pages/profile/Profile';
+import ToDoList from './pages/to do list/ToDoList';
 import QuoteGenerator from './pages/quotegenerator/quotegenerator';
-import Notes from './pages/notes/notes';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -49,11 +49,11 @@ const App: React.FC = () => (
           <Route exact path="/ionic-t-villaganas/Profile">
             <Profile />
           </Route>
+          <Route exact path="/ionic-t-villaganas/ToDoList">
+            <ToDoList />
+          </Route>
           <Route path="/ionic-t-villaganas/quotegenerator">
             <QuoteGenerator />
-          </Route>
-          <Route path="/ionic-t-villaganas/notes">
-            <Notes />
           </Route>
           
           <Route exact path="/ionic-t-villaganas/">
