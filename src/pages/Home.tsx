@@ -69,7 +69,7 @@ const Home: React.FC = () => {
         <div id="card">
           <IonCardHeader>
             <IonCardTitle className="card-header">This Is For You Medz</IonCardTitle>
-            <IonCardSubtitle className="card-header1">Gratitude fills my heart as I reflect on the joy you bring into my life. I hope we could meet each other before this school year ends. I miss you terribly and yearn for the warmth of your company</IonCardSubtitle>
+            <IonCardSubtitle className="card-header1">Gratitude fills my heart as I reflect on the joy you bring into my life. I hope we could meet each other again. I miss you terribly and yearn for the warmth of your company</IonCardSubtitle>
           </IonCardHeader>
           {cardData
             .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
