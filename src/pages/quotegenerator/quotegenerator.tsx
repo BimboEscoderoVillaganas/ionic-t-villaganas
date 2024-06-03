@@ -22,11 +22,12 @@ import audioFile5 from '/ionic-t-villaganas/src/pages/quotegenerator/mp3/m5.mp3'
 const QuoteGenerator: React.FC = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [quotes, setQuotes] = useState<string[]>([]);
-  const [randomIndex, setRandomIndex] = useState<number | null>(null);
-  const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(null); // State to store the current audio object
-  
+  const [displayedQuotes, setDisplayedQuotes] = useState<string[]>([]);
+  const [currentQuote, setCurrentQuote] = useState<string | null>(null);
+  const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(null);
+
   const audioFiles = [audioFile1, audioFile2, audioFile3, audioFile4, audioFile5];
-  
+
   useEffect(() => {
     const fetchQuotes = async () => {
       const quotesSnapshot = await getDocs(collection(db, 'quotes'));
@@ -37,19 +38,19 @@ const QuoteGenerator: React.FC = () => {
     fetchQuotes();
   }, []);
 
-  const generateRandomIndex = () => {
-    return Math.floor(Math.random() * quotes.length);
-  };
-
   const handleOpenAlert = () => {
-    const newIndex = generateRandomIndex();
-    setRandomIndex(newIndex);
+    if (displayedQuotes.length === quotes.length) {
+      setDisplayedQuotes([]);
+    }
+    const remainingQuotes = quotes.filter(quote => !displayedQuotes.includes(quote));
+    const newQuote = remainingQuotes[Math.floor(Math.random() * remainingQuotes.length)];
+    setDisplayedQuotes([...displayedQuotes, newQuote]);
+    setCurrentQuote(newQuote);
     setShowAlert(true);
     playRandomAudio();
   };
 
   const handleAlertDismiss = () => {
-    setRandomIndex(null);
     setShowAlert(false);
     if (currentAudio) {
       currentAudio.pause();
@@ -58,14 +59,14 @@ const QuoteGenerator: React.FC = () => {
   };
 
   const renderRandomMessage = () => {
-    if (randomIndex !== null) {
-      return quotes[randomIndex];
-    } else {
-      return '';
-    }
+    return currentQuote || '';
   };
 
   const playRandomAudio = () => {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
     const randomAudioIndex = Math.floor(Math.random() * audioFiles.length);
     const audio = new Audio(audioFiles[randomAudioIndex]);
     setCurrentAudio(audio);
