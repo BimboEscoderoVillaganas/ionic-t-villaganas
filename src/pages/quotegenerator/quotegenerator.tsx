@@ -67,13 +67,13 @@ const QuoteGenerator: React.FC = () => {
         <IonButtons slot='start'>
               <IonBackButton defaultHref='/app/home'/>
         </IonButtons>
-          <IonTitle>Quote Generator</IonTitle>
+          <IonTitle>My 20 Unspoken Echoes (Randomized)</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
     
         <div className="quote-container">
-          <img alt="Silhouette of mountains" src="https://media.tenor.com/yEG23sxXIVQAAAAM/shrek-shrek-meme.gif" />
+          <img alt="Silhouette of mountains" src="https://img1.picmix.com/output/stamp/normal/1/4/5/4/2044541_fb07e.gif" />
           {/*Button Trigger*/}
           <IonButton color="warning" onClick={handleOpenAlert}>
             Click me
@@ -81,7 +81,7 @@ const QuoteGenerator: React.FC = () => {
           <IonAlert
             isOpen={showAlert}
             onDidDismiss={handleAlertDismiss} // Call the handleAlertDismiss function when the alert is closed
-            header="Rizz"
+            header="Reflections on a Love Unfulfilled"
             cssClass="custom-alert"
             message={renderRandomMessage()}
             buttons={['Close']}

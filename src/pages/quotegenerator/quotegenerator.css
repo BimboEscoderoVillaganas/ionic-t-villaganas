@@ -21,3 +21,7 @@ ion-button {
   font-size: 50px;
   margin: 1% 0% 0% 1.5%;
 }
+.quote-container img{
+  width: 150px;
+  height: 270px;
+}

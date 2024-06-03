@@ -64,14 +64,14 @@ const ToDoList: React.FC = () => {
         <IonButtons slot='start'>
               <IonBackButton defaultHref='/app/home'/>
         </IonButtons>
-          <IonTitle>ToDo List</IonTitle>
+          <IonTitle>Message For Bimbo</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
    
         <IonItem>
-          <IonInput placeholder="Enter a new todo" value={newTodoText} onIonChange={(e) => setNewTodoText(e.detail.value!)} />
-          <IonButton slot="end" onClick={handleAddTodo}>Add</IonButton>
+          <IonInput placeholder="Enter a Message" value={newTodoText} onIonChange={(e) => setNewTodoText(e.detail.value!)} />
+          <IonButton slot="end" onClick={handleAddTodo}>Send</IonButton>
         </IonItem>
         <IonList>
           {todos.map(todo => (

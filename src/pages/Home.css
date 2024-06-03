@@ -1,46 +1,47 @@
-h1 {
-  text-align: center;
-}
-p{
-  margin: 10px 50px 200px 50px;
-}
-#text{
-  text-align: center;
-}
 
+/* Sunflower.css */
 
-
-
-
-
-
-
-
-
-ion-card {
-  margin: 10px;
+/* Customize as per your sunflower styling preferences */
+#card {
+  background-color: #f1f1f1;
+  padding: 20px;
 }
 
-.social-links ion-item {
-  --padding-start: 0;
+.home-card-icon {
+  font-size: 36px;
+}
+
+.home-card-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.unspoken-echoes {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  padding: 20px;
+  background-color: #f1f1f1;
 }
 
 .footer-section {
-  flex: 1 1 300px;
-  margin-right: 20px;
+  flex: 1;
 }
 
-.footer-section:last-child {
-  margin-right: 0;
+.social-links ion-icon {
+  font-size: 24px;
+  margin-right: 8px;
 }
 
 .footer-bottom {
+  background-color: #333;
+  color: #fff;
   text-align: center;
-  margin-top: 10px;
+  padding: 10px 0;
 }

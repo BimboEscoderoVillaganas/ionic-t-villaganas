@@ -8,13 +8,13 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore'; // Import
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDN-VpAdu6aLoX0gUJf0MVbo7UTi_l1e4U",
-  authDomain: "my-ionic-project-74a84.firebaseapp.com",
-  projectId: "my-ionic-project-74a84",
-  storageBucket: "my-ionic-project-74a84.appspot.com",
-  messagingSenderId: "1075717476161",
-  appId: "1:1075717476161:web:575cefb2d29e915fea5bc0",
-  measurementId: "G-R34S7CJZ0N"
+  apiKey: "AIzaSyDrb9n1ie4EFKbajzR1EKv7fJPGIgG_14A",
+  authDomain: "only-for-you-ecf45.firebaseapp.com",
+  projectId: "only-for-you-ecf45",
+  storageBucket: "only-for-you-ecf45.appspot.com",
+  messagingSenderId: "953286628398",
+  appId: "1:953286628398:web:0eadd31dc9559fb239fbbf",
+  measurementId: "G-NFGVKLW1B1"
 };
 
 // Initialize Firebase

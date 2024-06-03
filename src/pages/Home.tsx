@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import {
   IonFooter,
-  IonBackButton,
   IonButton,
-  IonButtons,
   IonCard,
   IonCardContent,
   IonCardHeader,
@@ -22,98 +20,61 @@ import {
   IonRow,
   IonTitle,
   IonToolbar,
-  IonItemDivider,
   IonSearchbar
 } from '@ionic/react';
 
-//Custom CSS
+// Ionic Icons
+import { logoFirebase, logoReact, logoIonic, readerOutline, logoFacebook, logoTwitter, logoInstagram, speedometerOutline, calculator, pencil, chatbubble } from 'ionicons/icons';
+
+// Custom CSS
 import './Home.css';
 
-//Ionic Icons
-import { logoFirebase, logoReact, logoIonic, readerOutline, logoFacebook, logoTwitter, logoInstagram, speedometerOutline,calculator,pencil, chatbubble} from 'ionicons/icons';
-
-
 const cardData = [
+  
   {
-    title: 'Click Counter',
-    icon: speedometerOutline,
-    subtitle: 'Applet #1',
-    link: '/ionic-t-villaganas/click_counter'
-  },
-  {
-    title: 'Calculator',
-    icon: calculator,
-    subtitle: 'Applet #2',
-    link: '/ionic-t-villaganas/Calculator'
-  },
-  {
-    title: 'To Do List',
+    title: 'Leave Me A Message',
     icon: pencil,
-    subtitle: 'Applet #3',
+    subtitle: 'Message',
     link: '/ionic-t-villaganas/ToDoList'
   },
   {
-    title: 'Quotes Generator',
+    title: 'My 20 Unspoken Echoes (Randomized)',
     icon: chatbubble,
-    subtitle: 'Applet #4',
+    subtitle: 'Reflections on a Love Unfulfilled',
     link: '/ionic-t-villaganas/quotegenerator'
   },
-  {
-    title: 'Notes',
-    icon: readerOutline,
-    subtitle: 'Applet #5',
-    link: '/ionic-t-villaganas/notes',
-    tags: {
-      tag1: logoIonic,
-      tag2: logoReact, 
-      tag3: logoFirebase 
-    }
-  }
-  
 ];
 
-  const Home: React.FC = () => {
+const Home: React.FC = () => {
 
-    {/*Dynamic Search*/}
-    const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
-    return (
-      <IonPage>
-        <IonHeader>
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Home</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent fullscreen>
+        <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle>Home</IonTitle>
+            <IonTitle size="large">Home</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent fullscreen>
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large">Home</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          <h1 id="text">Welcome to my Ionic App</h1>
-        <p id="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum possimus natus cupiditate ad nihil. Placeat odio quo aperiam animi ad recusandae, accusantium, neque explicabo impedit quae consequuntur laborum rem culpa sed ipsum error numquam earum pariatur hic eligendi minus magni facilis perspiciatis doloremque! Harum ullam archigit tecto quidem aliquid ex dolore quasi odit maiores suscipit facilis, rerum facere nisi ducimus qui voluptas similique id! Quas vel voluptatibus perspiciatis placeat dolore corrupti ipsam fuga sequi cupiditate! Similique pariatur libero id sint expedita amet enim reiciendis aliquid labore possimus.</p>
-        <div className="profile-details">
-          <h3>Bimbo E. Villaganas</h3>
-          <p>20201259@nbsc.edu.ph</p>
-          <p>Upper Pol-Oton, Tankulan, Manolo Fortich, Bukidnon</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        {/*Dynamic Search*/}
-        <>
+
+        
+
+        {/* Dynamic Search */}
         <div id="card">
-        <IonCardHeader>
-            <IonCardTitle className="card-header">Applications Developed By Bimbo E. Villaganas</IonCardTitle>
-            <IonCardSubtitle className="card-header1">List Of Applications</IonCardSubtitle>
+          <IonCardHeader>
+            <IonCardTitle className="card-header">This Is For You Medz</IonCardTitle>
+            <IonCardSubtitle className="card-header1">Gratitude fills my heart as I reflect on the joy you bring into my life. I hope we could meet each other before this school year ends. I miss you terribly and yearn for the warmth of your company</IonCardSubtitle>
           </IonCardHeader>
-          <IonSearchbar 
-            value={searchTerm} 
-            onIonInput={(e) => setSearchTerm(e.target.value ?? '')} 
-          />
-          
           {cardData
             .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((card, index) => (
-              <IonCard key={index}  routerLink={card.link} routerDirection='forward'>
+              <IonCard key={index} routerLink={card.link} routerDirection='forward'>
                 <IonCardHeader>
                   <IonCardTitle>
                     <IonGrid>
@@ -130,20 +91,32 @@ const cardData = [
                   </IonCardTitle>
                 </IonCardHeader>
               </IonCard>
-          ))}</div>
-        </>
-        
+            ))}
+             
+          {/* Unspoken Echoes Letter */}
+          <div className="unspoken-echoes">
+            <h2>A Heartfelt Tribute: Thank You, Medal Grace (Langga)</h2>
+            <p>Dear Medal Grace Sevilla (Langga),</p>
+            <p>There are some words that have lingered in my heart, words I have never found the right moment to share. Life has a way of weaving complex stories, and ours is one of silent admiration and unspoken feelings.</p>
+            <p>I want you to know how much I cherish every moment we've shared. Your laughter is a melody that brightens my day, your kindness a light that guides many. You inspire me to be a better person, even from a distance. Watching you pursue your dreams and bring joy to those around you has been a privilege.</p>
+            <p>Sometimes, I find myself imagining a world where circumstances were different, where our paths could align in a way that brings us closer. Before you graduate, I hold onto the hope that we may have the chance to meet each other, just the two of us, acknowledging the reality of life's uncertainties.</p>
+            <p>Yet, I respect the life you have and the happiness you've found.</p>
+            <p>In another life, perhaps, things could have been different. But in this one, I find solace in knowing that you're happy, and that’s what matters most to me.</p>
+            <p>Thank you for being a wonderful part of my life, even if only as a cherished friend.</p>
+            <p>With all my heart,</p>
+            <p>Bimbo Villaganas</p>
+          </div>
+        </div>
 
         <IonFooter>
           <div className="footer-content">
             <div className="footer-section">
-              <h3>Contact Us</h3>
-              <p>Email: 20201259@nbsc.edu.ph</p>
-              <p>Phone: 09123456789</p>
+              <h3>Contact Me</h3>
+              <p>Phone: 09609005374</p>
               <p>Address: Upper Pol-Oton, Tankulan, Manolo Fortich, Bukidnon</p>
             </div>
             <div className="footer-section">
-              <h3>Follow Us</h3>
+              <h3>Follow Me</h3>
               <IonList className="social-links">
                 <IonItem><a href="#"><IonIcon icon={logoFacebook} />BIMBO VILLAGANAS</a></IonItem>
                 <IonItem><a href="#"><IonIcon icon={logoTwitter} />BIMBO VILLAGANAS</a></IonItem>
