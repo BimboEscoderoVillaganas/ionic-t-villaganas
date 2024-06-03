@@ -104,7 +104,7 @@ const Home: React.FC = () => {
             <p>In another life, perhaps, things could have been different. But in this one, I find solace in knowing that you're happy, and that’s what matters most to me.</p>
             <p>Thank you for being a wonderful part of my life, even if only as a cherished friend.</p>
             <p>With all my heart,</p>
-            <p>Bimbo Villaganas</p>
+            <p>Bimbo</p>
           </div>
         </div>
 
