@@ -2,27 +2,31 @@ import React, { useState, useEffect } from 'react';
 import {
   IonButton,
   IonContent,
-  IonGrid,
   IonHeader,
   IonPage,
   IonTitle,
   IonToolbar,
   IonAlert,
-  IonRouterLink,
-  IonIcon,
   IonBackButton,
   IonButtons
 } from '@ionic/react';
-import { arrowBackCircle } from 'ionicons/icons';
-import { collection, getDocs } from 'firebase/firestore'; // Import Firestore functions
-import { db } from './firebase'; // Import Firebase connection
-import './quotegenerator.css'; // Import custom CSS file for styling
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from './firebase';
+import './quotegenerator.css';
+import audioFile1 from '/ionic-t-villaganas/src/pages/quotegenerator/mp3/m1.mp3';
+import audioFile2 from '/ionic-t-villaganas/src/pages/quotegenerator/mp3/m2.mp3';
+import audioFile3 from '/ionic-t-villaganas/src/pages/quotegenerator/mp3/m3.mp3';
+import audioFile4 from '/ionic-t-villaganas/src/pages/quotegenerator/mp3/m4.mp3';
+import audioFile5 from '/ionic-t-villaganas/src/pages/quotegenerator/mp3/m5.mp3';
 
 const QuoteGenerator: React.FC = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [quotes, setQuotes] = useState<string[]>([]);
-  const [randomIndex, setRandomIndex] = useState<number | null>(null); // State to store random index
-
+  const [randomIndex, setRandomIndex] = useState<number | null>(null);
+  const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(null); // State to store the current audio object
+  
+  const audioFiles = [audioFile1, audioFile2, audioFile3, audioFile4, audioFile5];
+  
   useEffect(() => {
     const fetchQuotes = async () => {
       const quotesSnapshot = await getDocs(collection(db, 'quotes'));
@@ -33,58 +37,63 @@ const QuoteGenerator: React.FC = () => {
     fetchQuotes();
   }, []);
 
-  // Function to generate a random index
   const generateRandomIndex = () => {
     return Math.floor(Math.random() * quotes.length);
   };
 
-  // Function to handle opening of the alert
   const handleOpenAlert = () => {
     const newIndex = generateRandomIndex();
     setRandomIndex(newIndex);
     setShowAlert(true);
+    playRandomAudio();
   };
 
-  // Function to handle closing of the alert
   const handleAlertDismiss = () => {
-    setRandomIndex(null); // Reset the index to null
-    setShowAlert(false); // Hide the alert
+    setRandomIndex(null);
+    setShowAlert(false);
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
   };
 
-  // Function to render random message
   const renderRandomMessage = () => {
     if (randomIndex !== null) {
       return quotes[randomIndex];
     } else {
-      return ''; // Return empty string if randomIndex is null
+      return '';
     }
+  };
+
+  const playRandomAudio = () => {
+    const randomAudioIndex = Math.floor(Math.random() * audioFiles.length);
+    const audio = new Audio(audioFiles[randomAudioIndex]);
+    setCurrentAudio(audio);
+    audio.play();
   };
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot='start'>
-              <IonBackButton defaultHref='/app/home'/>
-        </IonButtons>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/app/home" />
+          </IonButtons>
           <IonTitle>My 20 Unspoken Echoes (Randomized)</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-    
         <div className="quote-container">
           <img alt="Silhouette of mountains" src="https://img1.picmix.com/output/stamp/normal/1/4/5/4/2044541_fb07e.gif" />
-          {/*Button Trigger*/}
-          
-        <div>
-          <h4>I wish you all the best, and I'll just keep you as my favorite unfulfilled wish</h4>
-        </div>
+          <div>
+            <h4>I wish you all the best, and I'll just keep you as my favorite unfulfilled wish</h4>
+          </div>
           <IonButton color="warning" onClick={handleOpenAlert}>
             Click me
           </IonButton>
           <IonAlert
             isOpen={showAlert}
-            onDidDismiss={handleAlertDismiss} // Call the handleAlertDismiss function when the alert is closed
+            onDidDismiss={handleAlertDismiss}
             header="Reflections on a Love Unfulfilled"
             cssClass="custom-alert"
             message={renderRandomMessage()}
