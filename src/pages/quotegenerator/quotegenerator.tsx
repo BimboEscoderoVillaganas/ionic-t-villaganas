@@ -75,6 +75,10 @@ const QuoteGenerator: React.FC = () => {
         <div className="quote-container">
           <img alt="Silhouette of mountains" src="https://img1.picmix.com/output/stamp/normal/1/4/5/4/2044541_fb07e.gif" />
           {/*Button Trigger*/}
+          
+        <div>
+          <h4>I wish you all the best, and I'll just keep you as my favorite unfulfilled wish</h4>
+        </div>
           <IonButton color="warning" onClick={handleOpenAlert}>
             Click me
           </IonButton>

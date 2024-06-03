@@ -109,31 +109,6 @@ const Home: React.FC = () => {
         </div>
 
         <IonFooter>
-          <div className="footer-content">
-            <div className="footer-section">
-              <h3>Contact Me</h3>
-              <p>Phone: 09609005374</p>
-              <p>Address: Upper Pol-Oton, Tankulan, Manolo Fortich, Bukidnon</p>
-            </div>
-            <div className="footer-section">
-              <h3>Follow Me</h3>
-              <IonList className="social-links">
-                <IonItem><a href="#"><IonIcon icon={logoFacebook} />BIMBO VILLAGANAS</a></IonItem>
-                <IonItem><a href="#"><IonIcon icon={logoTwitter} />BIMBO VILLAGANAS</a></IonItem>
-                <IonItem><a href="#"><IonIcon icon={logoInstagram} />BIMBO VILLAGANAS</a></IonItem>
-              </IonList>
-            </div>
-            <div className="footer-section">
-              <h3>Newsletter</h3>
-              <p>Subscribe to our newsletter for updates.</p>
-              <form>
-                <IonItem>
-                  <IonInput type="email" placeholder="Your email" name="email" />
-                  <IonButton type="submit">Subscribe</IonButton>
-                </IonItem>
-              </form>
-            </div>
-          </div>
           <div className="footer-bottom">
             <p>&copy; 2024 Bimbo E. Villaganas. All rights reserved.</p>
           </div>
