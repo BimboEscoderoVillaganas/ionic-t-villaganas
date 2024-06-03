@@ -13,11 +13,12 @@ import {
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase';
 import './quotegenerator.css';
-import audioFile1 from '/ionic-t-villaganas/public/mp3/m1.mp3';
-import audioFile2 from '/ionic-t-villaganas/public/mp3/m2.mp3';
-import audioFile3 from '/ionic-t-villaganas/public/mp3/m3.mp3';
-import audioFile4 from '/ionic-t-villaganas/public/mp3/m4.mp3';
-import audioFile5 from '/ionic-t-villaganas/public/mp3/m5.mp3';
+import audioFile1 from '../../../public/mp3/m1.mp3';
+import audioFile2 from '../../../public/mp3/m2.mp3';
+import audioFile3 from '../../../public/mp3/m3.mp3';
+import audioFile4 from '../../../public/mp3/m4.mp3';
+import audioFile5 from '../../../public/mp3/m5.mp3';
+
 
 const QuoteGenerator: React.FC = () => {
   const [showAlert, setShowAlert] = useState(false);
